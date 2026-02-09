@@ -53,6 +53,7 @@ function discoverHtmlInputs() {
 
 export default defineConfig({
   root: '.',
+  base: '/df-website/',
   plugins: [
     htmlIncludesPlugin(__dirname),
     ViteImageOptimizer({
