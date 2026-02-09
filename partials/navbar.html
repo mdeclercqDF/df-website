@@ -1,0 +1,107 @@
+<header class="sticky top-0 z-50 bg-white border-b border-gray-100">
+  <nav class="section-container">
+    <div class="flex justify-between items-center h-20">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center">
+          <img src="/src/assets/images/df-logo.svg" alt="Digital Foundry" class="h-10" />
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div id="desktop-nav" class="hidden lg:flex items-center space-x-8">
+        <!-- Nav links injected by JS -->
+      </div>
+
+      <!-- Mobile menu button -->
+      <button
+        id="mobile-menu-button"
+        type="button"
+        class="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-df-body hover:text-df-dark hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-df-dark"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Toggle navigation menu"
+      >
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="hidden lg:hidden pb-4">
+      <div id="mobile-nav" class="flex flex-col space-y-4">
+        <!-- Nav links injected by JS -->
+      </div>
+    </div>
+
+    <!-- Fallback navigation for no-JS users -->
+    <noscript>
+      <div class="lg:flex hidden items-center space-x-8">
+        <a href="/pages/outcomes.html" class="nav-link">Outcomes</a>
+        <a href="/pages/ai.html" class="nav-link">AI</a>
+        <a href="/pages/inside-df.html" class="nav-link">Inside DF</a>
+        <a href="/pages/careers.html" class="nav-link">Careers</a>
+        <a href="/pages/perspectives.html" class="nav-link">Perspectives</a>
+        <a href="/#contact" class="btn-primary">Book a consultation</a>
+      </div>
+      <div class="lg:hidden flex flex-col space-y-4 pb-4">
+        <a href="/pages/outcomes.html" class="nav-link">Outcomes</a>
+        <a href="/pages/ai.html" class="nav-link">AI</a>
+        <a href="/pages/inside-df.html" class="nav-link">Inside DF</a>
+        <a href="/pages/careers.html" class="nav-link">Careers</a>
+        <a href="/pages/perspectives.html" class="nav-link">Perspectives</a>
+        <a href="/#contact" class="btn-primary w-fit">Book a consultation</a>
+      </div>
+    </noscript>
+  </nav>
+</header>
+
+<script>
+  // Single source of truth for navigation
+  const NAV_LINKS = [
+    { href: '/pages/outcomes.html', label: 'Outcomes', key: 'outcomes' },
+    { href: '/pages/ai.html', label: 'AI', key: 'ai' },
+    { href: '/pages/inside-df.html', label: 'Inside DF', key: 'inside-df' },
+    { href: '/pages/careers.html', label: 'Careers', key: 'careers' },
+    { href: '/pages/perspectives.html', label: 'Perspectives', key: 'perspectives' },
+  ]
+
+  // Render nav links to both desktop and mobile containers
+  const desktopContainer = document.getElementById('desktop-nav')
+  const mobileContainer = document.getElementById('mobile-nav')
+
+  NAV_LINKS.forEach((link) => {
+    // Desktop link
+    const desktopLink = document.createElement('a')
+    desktopLink.href = link.href
+    desktopLink.setAttribute('data-nav', link.key)
+    desktopLink.className = 'nav-link'
+    desktopLink.textContent = link.label
+    desktopContainer.appendChild(desktopLink)
+
+    // Mobile link
+    const mobileLink = document.createElement('a')
+    mobileLink.href = link.href
+    mobileLink.setAttribute('data-nav', link.key)
+    mobileLink.className = 'nav-link'
+    mobileLink.textContent = link.label
+    mobileContainer.appendChild(mobileLink)
+  })
+
+  // Add CTA button to desktop
+  const ctaDesktop = document.createElement('a')
+  ctaDesktop.href = '/#contact'
+  ctaDesktop.setAttribute('data-nav', 'contact')
+  ctaDesktop.className = 'btn-primary'
+  ctaDesktop.textContent = 'Book a consultation'
+  desktopContainer.appendChild(ctaDesktop)
+
+  // Add CTA button to mobile
+  const ctaMobile = document.createElement('a')
+  ctaMobile.href = '/#contact'
+  ctaMobile.setAttribute('data-nav', 'contact')
+  ctaMobile.className = 'btn-primary'
+  ctaMobile.textContent = 'Book a consultation'
+  mobileContainer.appendChild(ctaMobile)
+</script>

@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>How MCP Can Bring AI Closer to Real Enterprise Work - Digital Foundry</title>
+    <meta
+      name="description"
+      content="A pragmatic strategy for moving AI out of the demo phase and into the operational core, without rewriting your legacy systems. Learn how MCP bridges the gap."
+    />
+    <link
+      rel="canonical"
+      href="https://digitalfoundry.com/perspectives/how-mcp-can-bring-ai-closer-to-real-enterprise-work.html"
+    />
+    <meta property="og:title" content="How MCP Can Bring AI Closer to Real Enterprise Work" />
+    <meta
+      property="og:description"
+      content="A pragmatic strategy for moving AI out of the demo phase and into the operational core, without rewriting your legacy systems."
+    />
+    <meta
+      property="og:url"
+      content="https://digitalfoundry.com/perspectives/how-mcp-can-bring-ai-closer-to-real-enterprise-work.html"
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://digitalfoundry.com/src/assets/images/perspectives/howMCP.jpg" />
+    <meta property="og:site_name" content="Digital Foundry" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How MCP Can Bring AI Closer to Real Enterprise Work" />
+    <meta
+      name="twitter:description"
+      content="A pragmatic strategy for moving AI out of the demo phase and into the operational core, without rewriting your legacy systems."
+    />
+    <meta name="twitter:image" content="https://digitalfoundry.com/src/assets/images/perspectives/howMCP.jpg" />
+    <!--include:head.html-->
+  </head>
+  <body>
+    <!--include:navbar.html-->
+
+    <main>
+      <!-- Hero (smaller) -->
+      <section class="bg-df-dark text-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+        <div class="section-container">
+          <a
+            href="/pages/perspectives.html"
+            class="text-gray-400 hover:text-white text-sm font-sans uppercase tracking-wider transition-colors"
+          >
+            &larr; Back to Perspectives
+          </a>
+        </div>
+      </section>
+
+      <!-- Article -->
+      <section class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto">
+          <!-- Header -->
+          <header class="mb-12">
+            <div class="flex items-center gap-3 mb-4">
+              <span
+                class="text-xs font-sans font-semibold uppercase tracking-wider text-gray-500 bg-gray-100 px-3 py-1 rounded-full"
+              >
+                AI &amp; Engineering
+              </span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-df-dark mb-4 leading-tight">
+              How MCP Can Bring AI Closer to Real Enterprise Work
+            </h1>
+            <div class="flex items-center gap-4 text-sm text-df-body">
+              <span>
+                By
+                <strong>Digital Foundry Team</strong>
+              </span>
+              <span>&middot;</span>
+              <time datetime="2025-01-01">2025</time>
+            </div>
+          </header>
+
+          <!-- Hero Image -->
+          <div class="mb-12">
+            <img
+              src="/src/assets/images/perspectives/howMCP.jpg"
+              alt="How MCP Can Bring AI Closer to Real Enterprise Work"
+              class="w-full rounded-lg"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <!-- Content -->
+          <article class="prose prose-lg max-w-none text-df-body">
+            <p class="text-xl leading-relaxed">
+              A pragmatic strategy for moving AI out of the demo phase and into the operational core, without rewriting
+              your legacy systems.
+            </p>
+
+            <p>
+              Most enterprises operate on what insiders often describe as "the hairball": a dense cluster of legacy
+              applications, evolving data models, decades of workflow decisions, and integrations that have accumulated
+              over time. It runs the business, but it also makes change hard. This complexity helps explain why early AI
+              experiments have struggled to drive operational impact. Chatbots and RAG interfaces sit outside the core,
+              generating answers but unable to influence the systems where real work happens.
+            </p>
+
+            <p>
+              For thirty years, we have seen this pattern repeat across technology waves. The first phase brings
+              exploration and high expectations. The second phase demands practical integration, governance, and
+              measurable value. AI is now entering that second phase, and two developments are enabling the shift: AI
+              agents and Model Context Protocol (MCP).
+            </p>
+
+            <p>
+              They don't simplify the underlying complexity, but they do allow AI to work with legacy systems without
+              changing how those systems fundamentally operate. This creates a practical way to introduce AI into real
+              workflows without rewriting the platforms those workflows depend on.
+            </p>
+
+            <h2 class="text-2xl font-bold text-df-dark mt-12 mb-4">Why Agents and MCP Create New Possibilities</h2>
+
+            <p>
+              The primary barrier to operational AI has never been the model's intelligence. It has always been the
+              operational environment. Enterprise systems contain complex dependencies, long-lived data structures, and
+              critical business logic that limit how far a conversational interface can go.
+            </p>
+
+            <p>
+              Agents change this dynamic because they can act more like junior analysts: retrieving information,
+              evaluating conditions, running validations, summarizing results, and coordinating multi-step tasks. They
+              can also correlate information across systems that have never been linked, completing work that
+              traditionally required manual stitching.
+            </p>
+
+            <p>
+              MCP provides the structured layer that describes which actions exist, how to call them, what parameters
+              they require, and what boundaries must be respected. Think of MCP as a translation layer that tells an
+              agent what your systems can do and how to interact with them safely.
+            </p>
+
+            <p>
+              MCP differs from traditional API integration in one critical way: it provides semantic descriptions that
+              AI can reason about. If an MCP server exposes a capability like
+              <code>get_customer_orders(customer_id, date_range)</code>
+              , the agent understands what the function does and what information it needs—not through hardcoded logic,
+              but through reading the definition.
+            </p>
+
+            <p>
+              So when someone asks, "Why hasn't ACME Construction received their last shipment?", the agent can discover
+              and chain together the relevant tools: look up the customer, fetch their orders, check shipment status,
+              and pull logistics tracking. No developer wrote code for that specific question. The agent reasoned about
+              which capabilities to use and in what sequence.
+            </p>
+
+            <p>
+              Traditional integration requires developers to anticipate questions and build specific workflows. MCP lets
+              agents adapt to questions no one has anticipated, using whatever system capabilities the protocol exposes.
+            </p>
+
+            <p>In practical terms, MCP defines:</p>
+
+            <ul>
+              <li>the format of actions and responses</li>
+              <li>the constraints and governance that apply</li>
+              <li>the data sources it may access</li>
+              <li>the system capabilities an agent can use</li>
+            </ul>
+
+            <p>
+              This allows AI to operate adjacent to enterprise systems in a controlled, predictable way. MCP does not
+              modernize the legacy environment. It creates a safe and intelligible boundary that AI can work through.
+            </p>
+
+            <h2 class="text-2xl font-bold text-df-dark mt-12 mb-4">A Practical Strategy for Adoption</h2>
+
+            <p>
+              The most successful early AI deployments begin with precision, not scale. Organizations should identify
+              one workflow where teams lose time on repetitive steps such as gathering data, checking dependencies,
+              reviewing for completeness, or stitching together information across systems. They can then expose only
+              the relevant system actions through MCP and pair them with an agent that can interpret instructions and
+              chain tasks together.
+            </p>
+
+            <p>This targeted approach delivers several advantages:</p>
+
+            <ul>
+              <li>a grounded environment to learn how agents perform under real constraints</li>
+              <li>a repeatable pattern that scales naturally to adjacent processes</li>
+              <li>increased confidence among teams who see AI improving their actual workflow</li>
+              <li>
+                measurable operational value without broad disruption (less time spent gathering data, checking
+                dependencies, or stitching together information across systems)
+              </li>
+            </ul>
+
+            <p>
+              This mirrors what has guided successful digital transformations for decades. Progress comes not from
+              untangling the entire hairball at once, but from creating clear, well-governed pathways around it and
+              expanding them over time.
+            </p>
+
+            <h2 class="text-2xl font-bold text-df-dark mt-12 mb-4">A Clear View of What Comes Next</h2>
+
+            <p>
+              We remain realistic about the near-term capabilities of AI. It will not run enterprises autonomously, and
+              it should not operate without oversight. But AI can now interact with systems in ways that meaningfully
+              reduce friction, speed up workflows, and extend the reach of teams when deployed with structure and
+              intention.
+            </p>
+
+            <p>Agents bring reasoning and execution. MCP brings clarity and governance.</p>
+
+            <p>
+              Together, they offer one of the first credible paths to move AI from experimentation into the operational
+              flow of the business.
+            </p>
+
+            <p>
+              Organizations that pursue this shift with discipline and strategic focus will build a lasting advantage.
+              Those that rely on hype or silver-bullet solutions will find themselves revisiting familiar lessons. The
+              opportunity is real and so is the need to approach it with both ambition and pragmatism.
+            </p>
+          </article>
+
+          <!-- Back link -->
+          <div class="mt-16 pt-8 border-t border-gray-200">
+            <a
+              href="/pages/perspectives.html"
+              class="text-df-dark font-sans font-semibold text-sm uppercase tracking-wider hover:underline"
+            >
+              &larr; Back to All Perspectives
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--include:footer.html-->
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How MCP Can Bring AI Closer to Real Enterprise Work",
+        "description": "A pragmatic strategy for moving AI out of the demo phase and into the operational core, without rewriting your legacy systems.",
+        "image": "https://digitalfoundry.com/src/assets/images/perspectives/howMCP.jpg",
+        "datePublished": "2025-01-01",
+        "author": { "@type": "Organization", "name": "Digital Foundry", "url": "https://digitalfoundry.com" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Digital Foundry",
+          "url": "https://digitalfoundry.com",
+          "logo": { "@type": "ImageObject", "url": "https://digitalfoundry.com/src/assets/images/bridge1.webp" }
+        }
+      }
+    </script>
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

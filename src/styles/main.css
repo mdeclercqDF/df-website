@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans text-df-body antialiased bg-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .hero-section {
+    @apply relative bg-white text-df-dark py-24 md:py-32 px-4 sm:px-6 lg:px-8;
+  }
+
+  .hero-section h1 {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight;
+  }
+
+  .hero-section p {
+    @apply text-lg sm:text-xl text-df-body max-w-2xl mb-8;
+  }
+
+  .df-card {
+    @apply bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow;
+  }
+
+  .df-card h3 {
+    @apply text-xl font-semibold text-df-dark mb-3;
+  }
+
+  .df-card p {
+    @apply text-df-body leading-relaxed;
+  }
+
+  .challenge-card {
+    @apply relative bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-100 overflow-hidden;
+  }
+
+  .section-container {
+    @apply max-w-content mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-block bg-df-dark text-white px-8 py-3 rounded font-sans font-semibold text-sm uppercase tracking-wider hover:bg-gray-800 transition-colors;
+  }
+
+  .nav-link {
+    @apply text-df-body font-sans text-sm font-semibold uppercase tracking-wider hover:text-df-dark transition-colors;
+  }
+
+  .icon-circle {
+    @apply w-16 h-16 bg-gray-100 rounded-full mx-auto mb-6 flex items-center justify-center;
+  }
+
+  .icon-circle-svg {
+    @apply w-8 h-8 text-df-dark;
+  }
+
+  .bridge-parallax {
+    @apply relative h-[375px] bg-gray-200 bg-center bg-no-repeat bg-fixed;
+    background-size: cover;
+  }
+
+  /* Background images load only when .bg-loaded class is added by JS */
+  /* Uses CSS custom property set via data-bg attribute */
+  .bridge-parallax.bg-loaded {
+    background-image: var(--bg-image);
+  }
+}
