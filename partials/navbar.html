@@ -3,8 +3,8 @@
     <div class="flex justify-between items-center h-20">
       <!-- Logo -->
       <div class="flex-shrink-0">
-        <a href="/" class="flex items-center">
-          <img src="/src/assets/images/df-logo.svg" alt="Digital Foundry" class="h-10" />
+        <a href="" class="flex items-center" id="logo-link">
+          <img src="/df-website/assets/df-logo-Clkv_0nb.svg" alt="Digital Foundry" class="h-10" />
         </a>
       </div>
 
@@ -38,33 +38,43 @@
     <!-- Fallback navigation for no-JS users -->
     <noscript>
       <div class="lg:flex hidden items-center space-x-8">
-        <a href="/pages/outcomes.html" class="nav-link">Outcomes</a>
-        <a href="/pages/ai.html" class="nav-link">AI</a>
-        <a href="/pages/inside-df.html" class="nav-link">Inside DF</a>
-        <a href="/pages/careers.html" class="nav-link">Careers</a>
-        <a href="/pages/perspectives.html" class="nav-link">Perspectives</a>
-        <a href="/#contact" class="btn-primary">Book a consultation</a>
+        <a href="pages/outcomes.html" class="nav-link">Outcomes</a>
+        <a href="pages/ai.html" class="nav-link">AI</a>
+        <a href="pages/inside-df.html" class="nav-link">Inside DF</a>
+        <a href="pages/careers.html" class="nav-link">Careers</a>
+        <a href="pages/perspectives.html" class="nav-link">Perspectives</a>
+        <a href="index.html#contact" class="btn-primary">Book a consultation</a>
       </div>
       <div class="lg:hidden flex flex-col space-y-4 pb-4">
-        <a href="/pages/outcomes.html" class="nav-link">Outcomes</a>
-        <a href="/pages/ai.html" class="nav-link">AI</a>
-        <a href="/pages/inside-df.html" class="nav-link">Inside DF</a>
-        <a href="/pages/careers.html" class="nav-link">Careers</a>
-        <a href="/pages/perspectives.html" class="nav-link">Perspectives</a>
-        <a href="/#contact" class="btn-primary w-fit">Book a consultation</a>
+        <a href="pages/outcomes.html" class="nav-link">Outcomes</a>
+        <a href="pages/ai.html" class="nav-link">AI</a>
+        <a href="pages/inside-df.html" class="nav-link">Inside DF</a>
+        <a href="pages/careers.html" class="nav-link">Careers</a>
+        <a href="pages/perspectives.html" class="nav-link">Perspectives</a>
+        <a href="index.html#contact" class="btn-primary w-fit">Book a consultation</a>
       </div>
     </noscript>
   </nav>
 </header>
 
 <script>
+  // Detect if we're in pages/ or perspectives/ subdirectory
+  const isInPages = location.pathname.includes('/pages/')
+  const isInPerspectives = location.pathname.includes('/perspectives/')
+
+  // Base path for navigation (empty for root, '../' for subdirectories)
+  const basePath = isInPages || isInPerspectives ? '../' : ''
+
+  // Update logo link
+  document.getElementById('logo-link').href = basePath + 'index.html'
+
   // Single source of truth for navigation
   const NAV_LINKS = [
-    { href: '/pages/outcomes.html', label: 'Outcomes', key: 'outcomes' },
-    { href: '/pages/ai.html', label: 'AI', key: 'ai' },
-    { href: '/pages/inside-df.html', label: 'Inside DF', key: 'inside-df' },
-    { href: '/pages/careers.html', label: 'Careers', key: 'careers' },
-    { href: '/pages/perspectives.html', label: 'Perspectives', key: 'perspectives' },
+    { href: basePath + 'pages/outcomes.html', label: 'Outcomes', key: 'outcomes' },
+    { href: basePath + 'pages/ai.html', label: 'AI', key: 'ai' },
+    { href: basePath + 'pages/inside-df.html', label: 'Inside DF', key: 'inside-df' },
+    { href: basePath + 'pages/careers.html', label: 'Careers', key: 'careers' },
+    { href: basePath + 'pages/perspectives.html', label: 'Perspectives', key: 'perspectives' },
   ]
 
   // Render nav links to both desktop and mobile containers
@@ -91,7 +101,7 @@
 
   // Add CTA button to desktop
   const ctaDesktop = document.createElement('a')
-  ctaDesktop.href = '/#contact'
+  ctaDesktop.href = basePath + '#contact'
   ctaDesktop.setAttribute('data-nav', 'contact')
   ctaDesktop.className = 'btn-primary'
   ctaDesktop.textContent = 'Book a consultation'
@@ -99,7 +109,7 @@
 
   // Add CTA button to mobile
   const ctaMobile = document.createElement('a')
-  ctaMobile.href = '/#contact'
+  ctaMobile.href = basePath + '#contact'
   ctaMobile.setAttribute('data-nav', 'contact')
   ctaMobile.className = 'btn-primary'
   ctaMobile.textContent = 'Book a consultation'
