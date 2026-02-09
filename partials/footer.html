@@ -12,26 +12,69 @@
       <!-- Navigation -->
       <div>
         <h4 class="text-white font-sans font-semibold text-sm uppercase tracking-wider mb-4">Navigation</h4>
-        <ul class="space-y-2">
+        <ul class="space-y-2" id="footer-nav">
           <li>
-            <a href="/pages/outcomes.html" class="text-gray-400 hover:text-white text-sm transition-colors">Outcomes</a>
+            <a
+              href="pages/outcomes.html"
+              class="text-gray-400 hover:text-white text-sm transition-colors footer-link"
+              data-href="pages/outcomes.html"
+            >
+              Outcomes
+            </a>
           </li>
-          <li><a href="/pages/ai.html" class="text-gray-400 hover:text-white text-sm transition-colors">AI</a></li>
           <li>
-            <a href="/pages/inside-df.html" class="text-gray-400 hover:text-white text-sm transition-colors">
+            <a
+              href="pages/ai.html"
+              class="text-gray-400 hover:text-white text-sm transition-colors footer-link"
+              data-href="pages/ai.html"
+            >
+              AI
+            </a>
+          </li>
+          <li>
+            <a
+              href="pages/inside-df.html"
+              class="text-gray-400 hover:text-white text-sm transition-colors footer-link"
+              data-href="pages/inside-df.html"
+            >
               Inside DF
             </a>
           </li>
           <li>
-            <a href="/pages/careers.html" class="text-gray-400 hover:text-white text-sm transition-colors">Careers</a>
+            <a
+              href="pages/careers.html"
+              class="text-gray-400 hover:text-white text-sm transition-colors footer-link"
+              data-href="pages/careers.html"
+            >
+              Careers
+            </a>
           </li>
           <li>
-            <a href="/pages/perspectives.html" class="text-gray-400 hover:text-white text-sm transition-colors">
+            <a
+              href="pages/perspectives.html"
+              class="text-gray-400 hover:text-white text-sm transition-colors footer-link"
+              data-href="pages/perspectives.html"
+            >
               Perspectives
             </a>
           </li>
         </ul>
       </div>
+      <script>
+        ;(function () {
+          const isInPages = location.pathname.includes('/pages/')
+          const isInPerspectives = location.pathname.includes('/perspectives/')
+          let prefix = ''
+          if (isInPages) {
+            prefix = ''
+          } else if (isInPerspectives) {
+            prefix = '../'
+          }
+          document.querySelectorAll('.footer-link').forEach((link) => {
+            link.href = prefix + link.dataset.href
+          })
+        })()
+      </script>
 
       <!-- Contact -->
       <div>
