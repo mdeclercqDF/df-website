@@ -55,7 +55,7 @@
   }
 
   .btn-primary {
-    @apply inline-block bg-df-dark text-white px-8 py-3 rounded font-sans font-semibold text-sm uppercase tracking-wider hover:bg-gray-800 transition-colors;
+    @apply inline-block bg-df-dark text-white px-8 py-3 rounded font-sans font-semibold text-sm uppercase tracking-wider hover:bg-gray-800 transition-colors text-center;
   }
 
   .nav-link {
@@ -79,5 +79,59 @@
   /* Uses CSS custom property set via data-bg attribute */
   .bridge-parallax.bg-loaded {
     background-image: var(--bg-image);
+  }
+
+  /* Mobile: use scroll (fixed not supported); JS handles parallax via background-position */
+  @media (max-width: 767px) {
+    .bridge-parallax {
+      background-attachment: scroll;
+      background-size: auto 220%;
+      background-position: center center;
+    }
+  }
+}
+
+/* Fade-up scroll animation (AOS-style) */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.aos-fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+}
+
+.aos-fade-up.aos-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade-in only (no translate) - for parallax images */
+.aos-fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.aos-fade-in.aos-visible {
+  opacity: 1;
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .aos-fade-up,
+  .aos-fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

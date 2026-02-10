@@ -1,4 +1,4 @@
-<header class="sticky top-0 z-50 bg-white border-b border-gray-100">
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50">
   <nav class="section-container">
     <div class="flex justify-between items-center h-20">
       <!-- Logo -->
@@ -22,17 +22,10 @@
         aria-controls="mobile-menu"
         aria-label="Toggle navigation menu"
       >
-        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
-    </div>
-
-    <!-- Mobile Navigation -->
-    <div id="mobile-menu" class="hidden lg:hidden pb-4">
-      <div id="mobile-nav" class="flex flex-col space-y-4">
-        <!-- Nav links injected by JS -->
-      </div>
     </div>
 
     <!-- Fallback navigation for no-JS users -->
@@ -45,17 +38,41 @@
         <a href="pages/perspectives.html" class="nav-link">Perspectives</a>
         <a href="index.html#contact" class="btn-primary">Book a consultation</a>
       </div>
-      <div class="lg:hidden flex flex-col space-y-4 pb-4">
-        <a href="pages/outcomes.html" class="nav-link">Outcomes</a>
-        <a href="pages/ai.html" class="nav-link">AI</a>
-        <a href="pages/inside-df.html" class="nav-link">Inside DF</a>
-        <a href="pages/careers.html" class="nav-link">Careers</a>
-        <a href="pages/perspectives.html" class="nav-link">Perspectives</a>
-        <a href="index.html#contact" class="btn-primary w-fit">Book a consultation</a>
+      <div class="lg:hidden flex flex-col items-center space-y-6 pb-4">
+        <a href="pages/outcomes.html" class="nav-link text-xl">Outcomes</a>
+        <a href="pages/ai.html" class="nav-link text-xl">AI</a>
+        <a href="pages/inside-df.html" class="nav-link text-xl">Inside DF</a>
+        <a href="pages/careers.html" class="nav-link text-xl">Careers</a>
+        <a href="pages/perspectives.html" class="nav-link text-xl">Perspectives</a>
+        <a href="index.html#contact" class="btn-primary text-center">Book a consultation</a>
       </div>
     </noscript>
   </nav>
 </header>
+
+<!-- Mobile Navigation (fullscreen overlay — outside header to avoid clipping) -->
+<div id="mobile-menu" class="fixed inset-0 z-[60] bg-white/80 backdrop-blur-md flex-col hidden lg:hidden">
+  <!-- Top bar: logo + close -->
+  <div class="flex justify-between items-center h-20 px-4 sm:px-6 lg:px-8">
+    <a href="" class="flex items-center" id="mobile-logo-link">
+      <img src="/src/assets/images/df-logo.svg" alt="Digital Foundry" class="h-10" />
+    </a>
+    <button
+      id="mobile-menu-close"
+      type="button"
+      class="p-2 rounded-md text-df-body hover:text-df-dark hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-df-dark"
+      aria-label="Close navigation menu"
+    >
+      <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+  <!-- Centered nav links -->
+  <div id="mobile-nav" class="flex flex-col items-center justify-center flex-1 space-y-6">
+    <!-- Nav links injected by JS -->
+  </div>
+</div>
 
 <script>
   // Detect if we're in pages/ or perspectives/ subdirectory
@@ -65,8 +82,10 @@
   // Base path for navigation (empty for root, '../' for subdirectories)
   const basePath = isInPages || isInPerspectives ? '../' : ''
 
-  // Update logo link
+  // Update logo links
   document.getElementById('logo-link').href = basePath + 'index.html'
+  const mobileLogo = document.getElementById('mobile-logo-link')
+  if (mobileLogo) mobileLogo.href = basePath + 'index.html'
 
   // Single source of truth for navigation
   const NAV_LINKS = [
@@ -94,7 +113,7 @@
     const mobileLink = document.createElement('a')
     mobileLink.href = link.href
     mobileLink.setAttribute('data-nav', link.key)
-    mobileLink.className = 'nav-link'
+    mobileLink.className = 'nav-link text-xl'
     mobileLink.textContent = link.label
     mobileContainer.appendChild(mobileLink)
   })
@@ -111,7 +130,7 @@
   const ctaMobile = document.createElement('a')
   ctaMobile.href = basePath + '#contact'
   ctaMobile.setAttribute('data-nav', 'contact')
-  ctaMobile.className = 'btn-primary'
+  ctaMobile.className = 'btn-primary text-center'
   ctaMobile.textContent = 'Book a consultation'
   mobileContainer.appendChild(ctaMobile)
 </script>
